@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"     
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <!--该文件存放CRUD的sq1语句 -->
+
+<mapper namespace="tw.keang.dao.CustomerMapper">
+	<!-- 添加 -->
+	<insert id="save" parameterType="customer">
+		INSERT INTO [dbo].[customer]
+           ([name]
+           ,[gender]
+           ,[telephone]
+           ,[address])
+     VALUES
+           (#{name}
+           ,#{gender}
+           ,#{telephone}
+           ,#{address})
+	</insert>
+</mapper>
