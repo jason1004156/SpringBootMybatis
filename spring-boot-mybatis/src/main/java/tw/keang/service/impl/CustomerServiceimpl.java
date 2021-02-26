@@ -1,5 +1,7 @@
 package tw.keang.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -19,7 +21,30 @@ public class CustomerServiceimpl implements CustomerService {
 	@Override
 	public void save(Customer customer) {
 		// TODO Auto-generated method stub
-		customerMapper.save(customer);
+		if(customer.getId()!=null){
+			customerMapper.update(customer);
+		}else{
+			customerMapper.save(customer);
+		}
+		
+	}
+
+	@Override
+	public List<Customer> findAll() {
+		// TODO Auto-generated method stub
+		return customerMapper.findAll();
+	}
+
+	@Override
+	public Customer findById(Integer id) {
+		// TODO Auto-generated method stub
+		return customerMapper.findById(id);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		customerMapper.delete(id);		
 	}
 
 }

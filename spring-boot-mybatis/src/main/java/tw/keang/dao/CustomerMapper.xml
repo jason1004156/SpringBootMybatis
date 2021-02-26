@@ -17,4 +17,37 @@
            ,#{telephone}
            ,#{address})
 	</insert>
+	
+	<select id="findAll" resultType="customer">
+		SELECT [id]
+      ,[name]
+      ,[gender]
+      ,[telephone]
+      ,[address]
+  		FROM [dbo].[customer]
+	</select>
+	
+	<select id="findById" resultType="customer">
+		SELECT [id]
+      ,[name]
+      ,[gender]
+      ,[telephone]
+      ,[address]
+  		FROM [dbo].[customer]
+  		WHERE [id] = #{value}
+	</select>
+	
+	<update id="update" parameterType="customer">
+	UPDATE [dbo].[customer]
+   		SET [name] = #{name}
+      ,[gender] = #{gender}
+      ,[telephone] = #{telephone}
+      ,[address] = #{address}
+ 		WHERE id = #{id}
+	</update>
+	
+	<update id="delete" parameterType="customer">
+	DELETE [dbo].[customer]
+ 		WHERE id = #{id}
+	</update>
 </mapper>
